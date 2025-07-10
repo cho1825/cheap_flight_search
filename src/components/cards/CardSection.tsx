@@ -1,6 +1,5 @@
 import React from "react";
 import PopularPlaceCards from "./PopularPlaceCards.tsx";
-import PassengersSelector from "../search/PassengersSelector.tsx";
 import PopularSearchCards from "./PopularSearchCards.tsx";
 import TipsCard from "./TipsCard.tsx";
 
