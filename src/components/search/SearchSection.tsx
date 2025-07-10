@@ -62,6 +62,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({selectedLanguage}) => {
                     />
                     <SearchButton
                         selectedLanguage={selectedLanguage}
+                        selectedTripType={selectedTripType}
                         fromCity={fromCity}
                         toCity={toCity}
                         departDate={departDate}

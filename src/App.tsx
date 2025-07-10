@@ -5,6 +5,7 @@ import LanguageSelector from "./components/LanguageSelector.tsx";
 import type {LanguageCode} from "./constants/language.ts";
 import { Analytics } from '@vercel/analytics/react';
 import {useState} from "react";
+import {Toaster} from "sonner";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
 
             </div>
             <Analytics/>
+            <Toaster richColors /> {/* 옵션: richColors 쌈뽕하게! */}
         </>
     )
 }

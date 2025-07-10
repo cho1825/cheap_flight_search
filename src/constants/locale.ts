@@ -19,6 +19,8 @@ export const translationLocales = {
         searchMent1: "항공권을 검색해보세요",
         searchMent2: "원하는 여행 조건을 선택하고 최적의 항공권을 찾아보세요",
         searchComplete: "검색 완료!",
+        searchError: "검색 조건을 모두 입력해주세요.",
+        searchErrorRoundTrip: "돌아오는 편 날짜를 선택해주세요",
         searchCompleteDesc:
             "실제 항공권 검색 결과가 여기에 표시됩니다.\n외부 항공권 예약 시스템과 연동하여 실시간 결과를 보여줄 수 있습니다.",
     },
@@ -42,6 +44,8 @@ export const translationLocales = {
         searchMent1: "Search for Flights",
         searchMent2: "Choose your travel preferences and find the best flights",
         searchComplete: "Search Complete!",
+        searchError: "Please fill in all search criteria.",
+        searchErrorRoundTrip: "Please select a return date for round trips",
         searchCompleteDesc:
             "Actual flight search results will be displayed here.\nYou can integrate with external flight booking systems to show real-time results.",
     },
@@ -65,6 +69,8 @@ export const translationLocales = {
         searchMent1: "航空券を検索しましょう",
         searchMent2: "希望の旅行条件を選択して最適な航空券を見つけましょう",
         searchComplete: "検索完了！",
+        searchError: "すべての検索条件を入力してください。",
+        searchErrorRoundTrip: "往復の場合は帰国日の選択が必要です",
         searchCompleteDesc:
             "実際の航空券検索結果がここに表示されます。\n外部航空券予約システムと連携してリアルタイム結果を表示できます。",
     },
@@ -88,6 +94,8 @@ export const translationLocales = {
         searchMent1: "搜索航班",
         searchMent2: "选择您的旅行偏好，找到最佳航班",
         searchComplete: "搜索完成！",
+        searchError: "请填写所有搜索条件。",
+        searchErrorRoundTrip: "往返行程需要选择返回日期",
         searchCompleteDesc: "实际航班搜索结果将在此处显示。\n您可以与外部航班预订系统集成以显示实时结果。",
     },
 

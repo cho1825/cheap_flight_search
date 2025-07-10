@@ -1,9 +1,12 @@
 import React from "react";
 import type {LanguageCode} from "../../constants/language.ts";
 import {translationLocales} from "../../constants/locale.ts";
+import type {TripType} from "../../constants/tripType.ts";
+import {toast} from "sonner";
 
 interface SearchButtonProps {
     selectedLanguage: LanguageCode;
+    selectedTripType: TripType;
     fromCity: string;
     toCity: string;
     departDate: string;
@@ -11,10 +14,9 @@ interface SearchButtonProps {
     passengerCnt: number;
 }
 
-const SearchButton: React.FC<SearchButtonProps> = ({selectedLanguage,fromCity,toCity,departDate,returnDate,passengerCnt}) => {
+const SearchButton: React.FC<SearchButtonProps> = ({selectedLanguage, selectedTripType, fromCity,toCity,departDate,returnDate,passengerCnt}) => {
 
     const ment = translationLocales[selectedLanguage];
-
 
     const marker = "642526";
 
@@ -28,8 +30,15 @@ const SearchButton: React.FC<SearchButtonProps> = ({selectedLanguage,fromCity,to
 
     const searchFlights = () => {
 
-        console.log(returnDate);
-        console.log(`Searching flights from ${fromCity} to ${toCity} on ${departDate}${returnDate ? ` and returning on ${returnDate}` : ''}`);
+
+        if (fromCity === "" || toCity === "" || departDate === "") {
+            toast.error(ment.searchError);
+            return;
+        }
+        if (selectedTripType === "roundTrip" && returnDate === "") {
+            toast.error(ment.searchErrorRoundTrip); // 왕복일 경우 리턴 날짜가 필요
+            return;
+        }
 
 
         const origin = fromCity.toUpperCase();
