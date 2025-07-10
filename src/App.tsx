@@ -2,8 +2,9 @@ import TopVisualSection from "./components/TopVisualSection.tsx";
 import SearchSection from "./components/search/SearchSection.tsx";
 import CardSection from "./components/cards/CardSection.tsx";
 import LanguageSelector from "./components/LanguageSelector.tsx";
-import {useState} from "react";
 import type {LanguageCode} from "./constants/language.ts";
+import {Analytics} from "@vercel/analytics/vue";
+import {useState} from "react";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
 
     return (
         <>
+
             <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="absolute top-4 right-4 z-50">
                     <LanguageSelector
@@ -42,6 +44,7 @@ function App() {
                 </div>
 
             </div>
+            <Analytics/>
         </>
     )
 }
