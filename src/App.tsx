@@ -15,7 +15,6 @@ function App() {
         return "en";
     }
 
-
     const [selectedLanguage, setSelectedLanguage] = useState<LanguageCode>(getInitialLanguage());
 
 
@@ -23,13 +22,20 @@ function App() {
         <>
             <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
                 <div className="absolute top-4 right-4 z-50">
-                    <LanguageSelector/>
+                    <LanguageSelector
+                        selectedLanguage={selectedLanguage}
+                        setSelectedLanguage={setSelectedLanguage}
+                    />
                 </div>
                 <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-                    <TopVisualSection/>
+                    <TopVisualSection
+                        selectedLanguage={selectedLanguage}
+                    />
                 </div>
                 <div className="container mx-auto px-4 -mt-8 relative z-30">
-                    <SearchSection/>
+                    <SearchSection
+                        selectedLanguage={selectedLanguage}
+                    />
                 </div>
                 <div className="container mx-auto px-4 py-16">
                     <CardSection/>

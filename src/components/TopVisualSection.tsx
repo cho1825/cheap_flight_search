@@ -1,4 +1,15 @@
-const TopVisualSection: React.FC<null> = () => {
+import {translationLocales} from "../constants/locale.ts";
+import React from "react";
+import type {LanguageCode} from "../constants/language.ts";
+
+interface TopVisualSectionProps {
+    selectedLanguage: LanguageCode;
+}
+
+const TopVisualSection: React.FC<TopVisualSectionProps> = ({selectedLanguage}) => {
+
+    const ment = translationLocales[selectedLanguage];
+
     return (
         <>
             <div className="absolute inset-0 bg-black/20"></div>
@@ -13,8 +24,8 @@ const TopVisualSection: React.FC<null> = () => {
                         </path>
                     </svg>
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">어디든 떠나보세요</h1>
-                <p className="text-xl md:text-2xl opacity-90 mb-8">전 세계 최저가 항공권을 찾아드립니다</p>
+                <h1 className="text-4xl md:text-6xl font-bold mb-4">{ment.welcome1}</h1>
+                <p className="text-xl md:text-2xl opacity-90 mb-8">{ment.welcome2}</p>
             </div>
         </>
     )

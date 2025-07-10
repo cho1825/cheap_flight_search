@@ -3,25 +3,71 @@ import LocationSelector from "./LocationSelector.tsx";
 import DateSelector from "./DateSelector.tsx";
 import PassengersSelector from "./PassengersSelector.tsx";
 import SearchButton from "./SearchButton.tsx";
+import type {LanguageCode} from "../../constants/language.ts";
+import {useState} from "react";
+import type {TripType} from "../../constants/tripType.ts";
+import {translationLocales} from "../../constants/locale.ts";
 
+interface SearchSectionProps {
+    selectedLanguage: LanguageCode;
+}
 
-const SearchSection: React.FC<null> = () => {
+const SearchSection: React.FC<SearchSectionProps> = ({selectedLanguage}) => {
 
+    //왕복 편도 상태 관리
+    const [selectedTripType, setSelectedTripType] = useState<TripType>("roundTrip");
 
+    //여행지, 날짜, 승객 수 상태 관리
+    const [fromCity, setFromCity] = useState<string>("");
+    const [toCity, setToCity] = useState<string>("");
+    const [departDate, setDepartDate] = useState<string>("");
+    const [returnDate, setReturnDate] = useState<string>("");
+    const [passengerCnt, setPassengerCnt] = useState<number>(1);
+
+    const ment = translationLocales[selectedLanguage];
 
     return (
         <>
             <div className="rounded-lg bg-card text-card-foreground max-w-4xl mx-auto shadow-2xl border-0 bg-white">
                 <div className="flex flex-col space-y-1.5 p-6 text-center pb-6">
-                    <div className="tracking-tight text-2xl font-bold text-gray-800">항공권 검색</div>
-                    <div className="text-sm text-gray-600">원하는 여행 조건을 선택하고 최적의 항공권을 찾아보세요</div>
+                    <div className="tracking-tight text-2xl font-bold text-gray-800">{ment.searchMent1}</div>
+                    <div className="text-sm text-gray-600">{ment.searchMent2}</div>
                 </div>
                 <div className="p-6 pt-0 space-y-6">
-                    <TripTypeToggle/>
-                    <LocationSelector/>
-                    <DateSelector/>
-                    <PassengersSelector/>
-                    <SearchButton/>
+                    <TripTypeToggle
+                        selectedTripType={selectedTripType}
+                        setSelectedTripType={setSelectedTripType}
+                        selectedLanguage={selectedLanguage}
+                        setReturnDate={setReturnDate}
+                    />
+                    <LocationSelector
+                        selectedLanguage={selectedLanguage}
+                        fromCity={fromCity}
+                        setFromCity={setFromCity}
+                        toCity={toCity}
+                        setToCity={setToCity}
+                    />
+                    <DateSelector
+                        selectedLanguage={selectedLanguage}
+                        selectedTripType={selectedTripType}
+                        departDate={departDate}
+                        setDepartDate={setDepartDate}
+                        returnDate={returnDate}
+                        setReturnDate={setReturnDate}
+                    />
+                    <PassengersSelector
+                        selectedLanguage={selectedLanguage}
+                        passengerCnt={passengerCnt}
+                        setPassengerCnt={setPassengerCnt}
+                    />
+                    <SearchButton
+                        selectedLanguage={selectedLanguage}
+                        fromCity={fromCity}
+                        toCity={toCity}
+                        departDate={departDate}
+                        returnDate={returnDate}
+                        passengerCnt={passengerCnt}
+                    />
                 </div>
             </div>
         </>
