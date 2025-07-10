@@ -3,7 +3,7 @@ import SearchSection from "./components/search/SearchSection.tsx";
 import CardSection from "./components/cards/CardSection.tsx";
 import LanguageSelector from "./components/LanguageSelector.tsx";
 import type {LanguageCode} from "./constants/language.ts";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from '@vercel/analytics';
 import {useState} from "react";
 
 function App() {
