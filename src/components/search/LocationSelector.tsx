@@ -1,8 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import type {LanguageCode} from "../../constants/language.ts";
 import {translationLocales} from "../../constants/locale.ts";
-import axios from "axios";
-
 
 interface Suggestion {
     name: string;
@@ -44,30 +42,30 @@ const LocationSelector: React.FC<LocationSelector> = ({
     const [toWriting, setToWriting] = useState<boolean>(false);
 
 
-    const fetchSuggestions = async (
-        term: string,
-        setSuggestions: React.Dispatch<React.SetStateAction<Suggestion[]>>
-    ) => {
-        if (!term.trim()) {
-            setSuggestions([]);
-            return;
-        }
-        try {
-            const response = await axios.get("https://autocomplete.travelpayouts.com/places2", {
-                params: {
-                    term,
-                    locale: selectedLanguage,
-                    types: "airport",
-                },
-            });
-            const filtered = response.data.filter((item: any) => item.type === "city" || item.type === "airport");
-            console.log(filtered)
-            setSuggestions(filtered);
-        } catch (e) {
-            console.error("Autocomplete error:", e);
-            setSuggestions([]);
-        }
-    };
+    // const fetchSuggestions = async (
+    //     term: string,
+    //     setSuggestions: React.Dispatch<React.SetStateAction<Suggestion[]>>
+    // ) => {
+    //     if (!term.trim()) {
+    //         setSuggestions([]);
+    //         return;
+    //     }
+    //     try {
+    //         const response = await axios.get("https://autocomplete.travelpayouts.com/places2", {
+    //             params: {
+    //                 term,
+    //                 locale: selectedLanguage,
+    //                 types: "airport",
+    //             },
+    //         });
+    //         const filtered = response.data.filter((item: any) => item.type === "city" || item.type === "airport");
+    //         console.log(filtered)
+    //         setSuggestions(filtered);
+    //     } catch (e) {
+    //         console.error("Autocomplete error:", e);
+    //         setSuggestions([]);
+    //     }
+    // };
 
 
     useEffect(() => {

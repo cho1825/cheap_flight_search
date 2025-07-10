@@ -10,7 +10,12 @@ interface TripTypeToggleProps {
     setReturnDate: (date: string) => void; // 선택적 prop, 필요시 사용
 }
 
-const TripTypeToggle: React.FC<TripTypeToggleProps> = ({selectedLanguage, selectedTripType, setSelectedTripType, setReturnDate}) => {
+const TripTypeToggle: React.FC<TripTypeToggleProps> = ({
+                                                           selectedLanguage,
+                                                           selectedTripType,
+                                                           setSelectedTripType,
+                                                           setReturnDate
+                                                       }) => {
 
     const ment = translationLocales[selectedLanguage];
 
@@ -22,7 +27,8 @@ const TripTypeToggle: React.FC<TripTypeToggleProps> = ({selectedLanguage, select
                 >
                     {ment.tripType}
                 </label>
-                <div role="radiogroup" aria-required="false" dir="ltr" className="flex gap-6" tabIndex="0"
+                <div role="radiogroup" aria-required="false" dir="ltr" className="flex gap-6"
+                     tabIndex={0}
                      style={{outline: "none"}}>
                     <div className="flex items-center space-x-2"
                          onClick={() => setSelectedTripType("roundTrip")}
@@ -39,7 +45,7 @@ const TripTypeToggle: React.FC<TripTypeToggleProps> = ({selectedLanguage, select
                                 border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`
                             }
                             id="roundtrip"
-                            tabIndex="0"
+                            tabIndex={0}
                             data-radix-collection-item=""
                         >
                             {selectedTripType === "roundTrip" && (
